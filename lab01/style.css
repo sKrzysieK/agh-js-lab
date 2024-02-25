@@ -1,0 +1,84 @@
+body > * {
+  border: 1px solid black;
+  margin: 10px;
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(190, 237, 237, 1);
+  -moz-box-shadow: 0px 0px 5px 2px rgba(190, 237, 237, 1);
+  box-shadow: 0px 0px 5px 2px rgba(190, 237, 237, 1);
+}
+
+aside {
+  /* Specyfikacja wyglądu */
+  float: right;
+  width: 50%;
+  padding: 10px;
+}
+
+aside h1,
+h2 {
+  font-size: 35px;
+  margin: 0;
+}
+
+aside li {
+  font-size: 20px;
+}
+
+footer {
+  /* Specyfikacja wyglądu */
+  width: 100%;
+  top: 0;
+  float: left;
+  padding: 10px;
+}
+
+header {
+  /* Specyfikacja wyglądu */
+}
+
+header h1 {
+  font-weight: bolder;
+  font-size: 35px;
+  margin-left: 10px;
+}
+
+main {
+  float: left;
+  width: 40%;
+  padding: 10px;
+  /* display: block; */
+  /* Specyfikacja wyglądu */
+}
+
+main h1 {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+nav {
+  float: left;
+  /* Specyfikacja wyglądu */
+}
+
+nav ul {
+  /* Specyfikacja wyglądu */
+}
+
+nav li {
+  /* Specyfikacja wyglądu */
+}
+
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+pre {
+  padding: 0;
+  margin: 0;
+  white-space: pre-line;
+  line-height: 1.5em;
+}
+
+.azure {
+  background-color: azure;
+}
