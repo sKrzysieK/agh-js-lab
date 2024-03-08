@@ -1,1 +1,1 @@
-"# agh-js-lab" 
+# Javascript Labs AGH
