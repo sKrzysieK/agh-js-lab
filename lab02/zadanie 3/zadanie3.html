@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Płótno</title>
+  </head>
+  <body>
+    <main>
+      <h1>Płótno</h1>
+      <canvas id="canvas" width="130" height="50">
+        Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas"
+      </canvas>
+    </main>
+    <script>
+      "use strict";
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      ctx.scale(1 / 2, 1 / 2);
+
+      ctx.beginPath();
+      ctx.beginPath();
+      ctx.arc(50, 105, 100, (Math.PI * 4) / 3 + 0.4, (Math.PI * 7) / 4);
+      ctx.lineWidth = 5;
+      ctx.stroke();
+
+      ctx.arc(200, 105, 100, -(Math.PI * 3) / 4, -Math.PI / 3 - 0.4);
+      ctx.lineWidth = 5;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(50, 120, 100, (Math.PI * 4) / 3 + 0.2, (Math.PI * 7) / 4);
+      ctx.lineWidth = 7.5;
+      ctx.stroke();
+
+      ctx.arc(200, 120, 100, -(Math.PI * 3) / 4, -Math.PI / 3 - 0.2);
+      ctx.lineWidth = 7.5;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(50, 140, 100, (Math.PI * 4) / 3, (Math.PI * 7) / 4);
+      ctx.lineWidth = 10;
+      ctx.stroke();
+
+      ctx.arc(200, 140, 100, -(Math.PI * 3) / 4, -Math.PI / 3);
+      ctx.lineWidth = 10;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.lineWidth = 4;
+      ctx.moveTo(40, 85);
+      ctx.lineTo(220, 85);
+      ctx.stroke();
+
+      //ctx.fillText("Hello World", 10, canvas.height / 2);
+    </script>
+  </body>
+</html>
