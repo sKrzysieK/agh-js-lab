@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Księga gości</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2,
+      p {
+        margin: 10px 0px;
+      }
+      #guestBook {
+        padding: 10px;
+        border: 2px dashed #000;
+      }
+      .entry {
+        margin-bottom: 20px;
+      }
+      form {
+        padding: 10px;
+        background-color: #bcbcbc;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+      }
+      button {
+        margin-top: 10px;
+        padding: 5px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Lista Gości:</h2>
+      <div id="guestBook">
+        <!-- Lista gości zostanie wstawiona dynamicznie przez kod JavaScript -->
+      </div>
+      <h2>Nowy wpis:</h2>
+      <form method="post" action="/">
+        <label for="name">Twoje imię i nazwisko:</label><br />
+        <input type="text" id="name" name="name" required /><br />
+        <label for="message">Treść wpisu:</label><br />
+        <textarea id="message" name="message" rows="4" required></textarea
+        ><br />
+        <button type="submit">Dodaj wpis</button>
+      </form>
+    </div>
+  </body>
+</html>
