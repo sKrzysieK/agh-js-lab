@@ -63,7 +63,7 @@ function requestListener(request, response) {
   <body>
     <main>
       <h1>Vanilla Node.js application</h1>
-      <form method="POST" action="/submit">
+      <form method="GET" action="/submit">
         <label for="name">Give your name</label>
         <input name="name">
         <br>

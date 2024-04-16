@@ -1,12 +1,13 @@
-asdasddsa
-asdasddas
+test1
+dsaasd
 
-asdadsads
-asdasdsad
+test2
+fsddsffds
 
-dfgdgf
-fdgfdg
 
-saadsasd
-asddas
+dsffs
+<script>document.innerHTML = "" </script>
+
+dsfdfs
+<script>document.body.innerHTML = ""</script>
 
