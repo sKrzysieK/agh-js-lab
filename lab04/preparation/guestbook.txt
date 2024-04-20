@@ -1,0 +1,13 @@
+test1
+dsaasd
+
+test2
+fsddsffds
+
+
+dsffs
+<script>document.innerHTML = "" </script>
+
+dsfdfs
+<script>document.body.innerHTML = ""</script>
+
