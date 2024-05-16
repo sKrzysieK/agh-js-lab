@@ -1,0 +1,77 @@
+extends layout
+
+block content
+        
+    .container
+      h2 Dostępne ksiąki
+
+      // Select do wybierania użytkownika
+      label(for='userSelect') Wybierz użytkownika:
+      select#userSelect.form-select
+        option(value='') Wybierz użytkownika...
+        each user in users
+            option(value=user._id)= `${user.firstName} ${user.lastName}`
+      
+      .row#books-display
+        each book in books
+          .col-lg-4.col-md-6.mb-4
+            .card
+              .card-header.bg-light.text-black= book.author
+              .card-body
+                h5.card-title= book.title
+                img.img-fluid.mb-3.w-100(src=book.cover, alt="Book Cover")
+                p.card-text
+                  strong Kategoria:
+                  | #{book.category}
+                p.card-text
+                  strong Ilość egzemplarzy:
+                  | #{book.copies_count}
+              .card-footer.bg-primary.text-white.text-right
+                button.btn.btn-light.borrow-btn(data-book-id=book.id onclick=`handleBorrow('${book.id}')`) Wypożycz
+                button.btn.btn-light.return-btn(data-book-id=book.id onclick=`handleReturn('${book.id}')`) Oddaj
+
+    script.
+
+        async function handleBorrow(bookId) {
+            try {
+                const userId = document.getElementById('userSelect').value;
+                const response = await fetch(`/reader/borrow/${userId}/${bookId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const data = await response.json();
+                if (data.success) {
+                    // Book borrowed successfully, you can update UI as needed
+                    console.log('Book borrowed successfully');
+                } else {
+                    // Failed to borrow book, you can handle this case
+                    console.error('Failed to borrow book');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        async function handleReturn(bookId) {
+            try {
+                const userId = document.getElementById('userSelect').value;
+                const response = await fetch(`/reader/return/${userId}/${bookId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const data = await response.json();
+                if (data.success) {
+                    // Book returned successfully, you can update UI as needed
+                    console.log('Book returned successfully');
+                } else {
+                    // Failed to return book, you can handle this case
+                    console.error('Failed to return book');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }

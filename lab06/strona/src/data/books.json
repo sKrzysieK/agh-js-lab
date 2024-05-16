@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Ksiązka 1",
+    "author": "Autor 1",
+    "category": "Kategoria 1",
+    "copies_count": 3,
+    "cover": "https://picsum.photos/200/300"
+  },
+  {
+    "id": 2,
+    "title": "Ksiązka 2",
+    "author": "Autor 2",
+    "category": "Kategoria 2",
+    "copies_count": 2,
+    "cover": "https://picsum.photos/200/300"
+  },
+  {
+    "id": 3,
+    "title": "Ksiązka 3",
+    "author": "Autor 3",
+    "category": "Kategoria 3",
+    "copies_count": 5,
+    "cover": "https://picsum.photos/200/300"
+  },
+  {
+    "id": 4,
+    "title": "Ksiązka 4",
+    "author": "Autor 4",
+    "category": "Kategoria 4",
+    "copies_count": 1,
+    "cover": "https://picsum.photos/200/300"
+  }
+]

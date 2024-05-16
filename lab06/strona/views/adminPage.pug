@@ -1,0 +1,82 @@
+extends layout
+
+block content
+    .container
+        h1 Admin Pannel
+        h2 Dodaj nową książkę
+
+        form(action="/admin/add-book", method="post")
+            .mb-3
+                label(for="title") Tytuł:
+                input#title.form-control(type="text", name="title", required)
+            .mb-3
+                label(for="author") Autor:
+                input#author.form-control(type="text", name="author", required)
+            .mb-3
+                label(for="category") Kategoria:
+                input#category.form-control(type="text", name="category", required)
+            .mb-3
+                label(for="copies_count") Ilość egzemplarzy:
+                input#copies_count.form-control(type="number", name="copies_count", required)
+            .mb-3
+                label(for="cover") Link do okładki:
+                input#cover.form-control(type="url", name="cover", required)
+            button.btn.btn-primary(type="submit") Dodaj
+        label(for='userSelect') Wybierz użytkownika:
+        select#userSelect.form-select(onchange=`handleUserChange()`,data-users=users)
+            option(value='') Wybierz użytkownika...
+            each user in users
+                option(value=user._id)= `${user.firstName} ${user.lastName}`
+
+        h2 Książki wypożyczone przez:
+        p#selectedUser
+        // Tutaj zostanie wyświetlone imię i nazwisko wybranego użytkownika
+
+    script.
+        function handleUserChange() {
+            const userId = document.getElementById('userSelect').value;
+            fetch(`/admin/user/${userId}/borrowedBooks`)
+            .then(response => response.json())
+            .then(data => {
+                console.log("DATA", data)
+                const selectedUser = document.getElementById('selectedUser');
+                selectedUser.innerText = `Książki wypożyczone przez: ${data.user.firstName} ${data.user.lastName}`;
+                const borrowedBooksList = document.createElement('ul');
+                data.borrowedBooks.forEach(borrowedBook => {
+                    const div = document.createElement('div');
+                    const listItem = document.createElement('li');
+                    const btn = document.createElement('button');
+                    btn.onclick = () => handleReturn(borrowedBook._id);
+                    btn.textContent = "Oddaj";
+                    listItem.textContent = `${borrowedBook.title} (${borrowedBook.author})`;
+                    div.appendChild(listItem);
+                    div.appendChild(btn);
+                    borrowedBooksList.appendChild(div);
+                });
+                selectedUser.appendChild(borrowedBooksList);
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        async function handleReturn(bookId) {
+            try {
+                const userId = document.getElementById('userSelect').value;
+                console.log(userId)
+                const response = await fetch(`/reader/return/${userId}/${bookId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const data = await response.json();
+                if (data.success) {
+                    // Book returned successfully, you can update UI as needed
+                    console.log('Book returned successfully');
+                } else {
+                    // Failed to return book, you can handle this case
+                    console.error('Failed to return book');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
